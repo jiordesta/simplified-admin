@@ -1,10 +1,19 @@
 import React from "react";
-import Authentication from "./pages/Authentication";
+
+import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import Homepage from "./pages/Homepage";
 
 export default function App() {
   return (
-    <div className="">
-      <Authentication />
-    </div>
+    <Provider store={store}>
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+        toastOptions={{ duration: 7500 }}
+      />
+      <Homepage />
+    </Provider>
   );
 }
